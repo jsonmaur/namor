@@ -15,9 +15,9 @@ defmodule DictTest do
       assert_no_duplicates(:default)
     end
 
-    test "should be no reserved words in manly nouns" do
-      assert_no_reserved(:manly)
-      assert_no_duplicates(:manly)
+    test "should be no reserved words in rugged nouns" do
+      assert_no_reserved(:rugged)
+      assert_no_duplicates(:rugged)
     end
   end
 

@@ -6,7 +6,7 @@ defmodule NamorTest do
     test "should get all dictionaries" do
       dictionaries = Namor.get_dictionaries()
       assert Map.has_key?(dictionaries, :default)
-      assert Map.has_key?(dictionaries, :manly)
+      assert Map.has_key?(dictionaries, :rugged)
     end
   end
 
@@ -29,9 +29,9 @@ defmodule NamorTest do
     end
 
     test "should generate a name with an alternate dictionary" do
-      assert {:ok, name} = Namor.generate(words: 3, dictionary: :manly)
+      assert {:ok, name} = Namor.generate(words: 3, dictionary: :rugged)
       assert [adjective, _, _] = String.split(name, "-")
-      assert Namor.Helpers.get_dict!(:manly).adjectives |> Enum.member?(adjective)
+      assert Namor.Helpers.get_dict!(:rugged).adjectives |> Enum.member?(adjective)
     end
 
     test "should return error if dictionary doesn't exist" do

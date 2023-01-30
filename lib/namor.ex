@@ -5,7 +5,7 @@ defmodule Namor do
 
   alias Namor.Helpers
 
-  @type dictionary_type :: :default | :manly
+  @type dictionary_type :: :default | :rugged
   @type salt_type :: :numbers | :letters | :mixed
   @type_generate_options quote(
                            do: [
@@ -22,7 +22,7 @@ defmodule Namor do
   @reserved Namor.Helpers.get_dict!("reserved.txt")
   @dictionaries %{
     default: Namor.Helpers.get_dict!(:default),
-    manly: Namor.Helpers.get_dict!(:manly)
+    rugged: Namor.Helpers.get_dict!(:rugged)
   }
 
   @doc false
@@ -68,7 +68,7 @@ defmodule Namor do
       iex> require Namor
       Namor
 
-      iex> Namor.generate(words: 3, dictionary: :manly)
+      iex> Namor.generate(words: 3, dictionary: :rugged)
       {:ok, "savage-whiskey-stain"}
 
   """

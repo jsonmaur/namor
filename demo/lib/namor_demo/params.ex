@@ -10,7 +10,7 @@ defmodule NamorDemo.Params do
     salt: :integer,
     salt_type: {:parameterized, Ecto.Enum, Ecto.Enum.init(values: [:mixed, :letters, :numbers])},
     separator: :string,
-    dictionary: {:parameterized, Ecto.Enum, Ecto.Enum.init(values: [:default, :manly])}
+    dictionary: {:parameterized, Ecto.Enum, Ecto.Enum.init(values: [:default, :rugged])}
   }
 
   def changeset(%Params{} = params, attrs \\ %{}) do

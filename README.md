@@ -39,7 +39,7 @@ iex> Namor.generate()
 iex> Namor.generate(salt: 5)
 {:ok, "sandwich-invent-s86uo"}
 
-iex> Namor.generate(words: 3, dictionary: :manly)
+iex> Namor.generate(words: 3, dictionary: :rugged)
 {:ok, "savage-whiskey-stain"}
 ```
 
@@ -78,7 +78,7 @@ The following stats give you the total number of permutations based on the word 
 - 3-word combinations: 12,382,548,750
 - 4-word combinations: 23,217,278,906,250
 
-##### `:manly` dictionary
+##### `:rugged` dictionary
 
 - 1-word combinations: 735
 - 2-word combinations: 127,400

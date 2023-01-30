@@ -100,6 +100,16 @@ defmodule NamorTest do
     end
   end
 
+  describe "with_salt/4" do
+    test "should append a salt to a value" do
+      assert Namor.with_salt("foobar", 5) =~ ~r/^foobar-[a-zA-Z0-9]{5}$/
+    end
+
+    test "should append a salt to a value with options" do
+      assert Namor.with_salt("foobar", 5, "_", :numbers) =~ ~r/^foobar_[0-9]{5}$/
+    end
+  end
+
   describe "reserved?/1" do
     test "should invalidate a reserved subdomain from default reserved list" do
       assert Namor.reserved?("login")

@@ -40,11 +40,19 @@ iex> Namor.generate(words: 3, dictionary: :manly)
 
 ```elixir
 defmodule MyApp.Subdomains do
-  def get_new_subdomain do
-    with {:ok, subdomain} <- Namor.generate(salt: 5),
-         true <- Namor.subdomain?(subdomain),
-         false <- !Namor.reserved?(subdomain) do
-      subdomain
+  use Namor
+
+  @salt_length 5
+
+  def get_new_subdomain(nil), do: Namor.generate(salt: @salt_length)
+
+  def get_new_subdomain(name) do
+    with false <- Namor.reserved?(name),
+         subdomain <- Namor.with_salt(name, @salt_length),
+         true <- Namor.subdomain?(subdomain) do
+      {:ok, subdomain}
+    else
+      _ -> {:error, :invalid_subdomain}
     end
   end
 end

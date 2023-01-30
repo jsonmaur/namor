@@ -13,8 +13,8 @@ jobs:
 
     strategy:
       matrix:
-        otp: ["23", "24", "25"]
-        elixir: ["1.12", "1.13", "1.14"]
+        otp: ["24", "25"]
+        elixir: ["1.13", "1.14"]
 
     steps:
     - uses: actions/checkout@v3
@@ -43,5 +43,5 @@ jobs:
           ${{ runner.os }}-mix-${{ env.cache-name }}-
           ${{ runner.os }}-mix-
 
-    - run: mix deps.get --only test
+    - run: mix deps.get
     - run: mix test

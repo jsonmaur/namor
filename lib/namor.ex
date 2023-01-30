@@ -5,11 +5,13 @@ defmodule Namor do
 
   alias Namor.Helpers
 
+  @type dictionary_type :: :default | :manly
+  @type salt_type :: :numbers | :letters | :mixed
   @type_generate_options quote(
                            do: [
                              words: integer,
                              salt: integer,
-                             salt_type: :numbers | :letters | :mixed,
+                             salt_type: salt_type,
                              separator: binary
                            ]
                          )
@@ -70,7 +72,7 @@ defmodule Namor do
       {:ok, "savage-whiskey-stain"}
 
   """
-  @spec generate([unquote_splicing(@type_generate_options), dictionary: :default | :manly]) ::
+  @spec generate([unquote_splicing(@type_generate_options), dictionary: dictionary_type]) ::
           {:ok, binary} | {:error, atom}
 
   defmacro generate(opts \\ []) when is_list(opts) do
@@ -98,23 +100,31 @@ defmodule Namor do
     salt_type = Keyword.get(opts, :salt_type, :mixed)
     separator = Keyword.get(opts, :separator, "-")
 
-    salt_chars =
-      case salt_type do
+    name =
+      words
+      |> Helpers.get_pattern()
+      |> Enum.map_join(separator, &(Map.get(dict, &1) |> Enum.random()))
+
+    {:ok, if(salt > 0, do: with_salt(name, salt, separator, salt_type), else: name)}
+  end
+
+  @doc """
+  Appends a salt to a value.
+
+  If you want to use a custom charlist for the salt, use
+  `Namor.Helpers.get_salt/2` instead.
+  """
+  @spec with_salt(binary, integer, binary, salt_type) :: binary
+
+  def with_salt(value, length, separator \\ "-", type \\ :mixed) do
+    chars =
+      case type do
         :numbers -> '0123456789'
         :letters -> 'abcdefghijklmnopqrstuvwxyz'
         :mixed -> 'abcdefghijklmnopqrstuvwxyz0123456789'
       end
 
-    name =
-      Helpers.get_pattern(words)
-      |> Enum.map_join(separator, &(Map.get(dict, &1) |> Enum.random()))
-
-    name =
-      if salt > 0,
-        do: name <> separator <> Helpers.get_salt(salt, salt_chars),
-        else: name
-
-    {:ok, name}
+    value <> separator <> Helpers.get_salt(length, chars)
   end
 
   @doc """

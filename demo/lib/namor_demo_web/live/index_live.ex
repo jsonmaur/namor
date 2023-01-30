@@ -18,17 +18,15 @@ defmodule NamorDemoWeb.IndexLive do
       socket
       |> assign(:uri, URI.parse(uri))
       |> assign(:changeset, changeset)
+      |> assign(:name, nil)
 
     socket =
       case Ecto.Changeset.apply_action(changeset, :validate) do
         {:ok, data} ->
-          socket
-          |> assign(:name, connected?(socket) && generate_name(data))
+          if connected?(socket), do: assign(socket, :name, generate_name(data)), else: socket
 
         {:error, changeset} ->
-          socket
-          |> assign(:name, nil)
-          |> assign(:changeset, changeset)
+          assign(socket, :changeset, changeset)
       end
 
     {:noreply, socket}

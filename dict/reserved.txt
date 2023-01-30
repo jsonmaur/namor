@@ -124,6 +124,7 @@ forums
 free
 ftp
 games
+get
 gettingstarted
 git
 global
@@ -277,6 +278,7 @@ script
 scripts
 search
 secure
+secured
 security
 send
 server

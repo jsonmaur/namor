@@ -149,7 +149,6 @@ animated
 annoyed
 annoying
 annual
-anonymous
 another
 antagonistic
 anticipated
@@ -1329,7 +1328,6 @@ fathomless
 fatigued
 faulty
 favorable
-favorite
 fawning
 feared
 fearful
@@ -1469,7 +1467,6 @@ frayed
 freakish
 freaky
 freckled
-free
 freezing
 frequent
 fresh
@@ -1561,7 +1558,6 @@ gleaming
 glib
 glistening
 glittering
-global
 globular
 gloomy
 glorious
@@ -2410,7 +2406,6 @@ misty
 mixed
 mnemonic
 moaning
-mobile
 mocking
 moderate
 modern
@@ -2474,7 +2469,6 @@ muted
 mutinous
 muttering
 mutual
-my
 myopic
 mysterious
 mystic
@@ -2519,7 +2513,6 @@ nervous
 neurological
 neurotic
 neutral
-new
 newest
 next
 nice
@@ -2620,8 +2613,6 @@ official
 officious
 oily
 okay
-old
-older
 oldest
 oldfashioned
 ominous
@@ -2867,7 +2858,6 @@ poor
 poorer
 poorest
 popping
-popular
 populous
 porous
 portable
@@ -2999,7 +2989,6 @@ psychiatric
 psychological
 psychosomatic
 psychotic
-public
 puckish
 puffy
 pugnacious
@@ -3063,7 +3052,6 @@ rampageous
 rampant
 rancid
 rancorous
-random
 rank
 rapid
 rapturous
@@ -3348,8 +3336,6 @@ secondhand
 secret
 secretive
 secular
-secure
-secured
 sedate
 seditious
 seductive
@@ -3544,7 +3530,6 @@ sophisticated
 sordid
 sore
 sorrowful
-sorry
 soulful
 soulless
 soundless
@@ -3638,7 +3623,6 @@ startled
 startling
 starving
 stately
-static
 statistical
 statuesque
 statutory

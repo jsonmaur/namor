@@ -14,8 +14,6 @@ act
 acted
 activate
 adapt
-add
-address
 adjust
 administer
 admire
@@ -115,7 +113,6 @@ blot
 blow
 blur
 blush
-board
 boast
 boil
 bolt
@@ -145,7 +142,6 @@ burn
 burst
 bury
 bust
-buy
 buzz
 calculate
 call
@@ -168,7 +164,6 @@ change
 charge
 chart
 chase
-chat
 cheat
 check
 cheer
@@ -205,7 +200,6 @@ command
 comment
 commit
 communicate
-compare
 compel
 compete
 compile
@@ -226,7 +220,6 @@ confiscate
 confront
 confuse
 congratulate
-connect
 connote
 conquer
 consecrate
@@ -247,7 +240,6 @@ consult
 contain
 contemn
 contend
-contest
 continue
 contract
 contradict
@@ -285,7 +277,6 @@ crackle
 crash
 crave
 crawl
-create
 creep
 crib
 criticize
@@ -318,7 +309,6 @@ dedicate
 define
 delay
 delegate
-delete
 delight
 deliver
 demonstrate
@@ -329,14 +319,12 @@ derive
 describe
 desert
 deserve
-design
 desire
 destroy
 detach
 detail
 detect
 determine
-develop
 devise
 diagnose
 die
@@ -369,10 +357,8 @@ divert
 divide
 do
 does
-donate
 double
 doubt
-download
 draft
 drag
 drain
@@ -465,13 +451,11 @@ fasten
 favour
 fax
 fear
-feed
 feel
 fence
 ferry
 fetch
 fight
-file
 fill
 film
 finalize
@@ -494,7 +478,6 @@ flow
 flower
 fly
 fold
-follow
 fool
 forbid
 force
@@ -510,7 +493,6 @@ formulate
 forsake
 found
 frame
-free
 freeze
 frighten
 fry
@@ -522,7 +504,6 @@ gash
 gather
 gaze
 generate
-get
 give
 glance
 glitter
@@ -566,7 +547,6 @@ heap
 hear
 heat
 heave
-help
 hesitate
 hew
 hide
@@ -680,7 +660,6 @@ invent
 inventory
 invest
 investigate
-invite
 involve
 irritate
 is
@@ -688,7 +667,6 @@ itch
 jail
 jam
 jog
-join
 joke
 judge
 juggle
@@ -734,13 +712,11 @@ light
 lighten
 like
 limp
-list
 listen
 live
 load
 locate
 lock
-log
 long
 look
 lose
@@ -749,7 +725,6 @@ magnify
 maintain
 make
 man
-manage
 manipulate
 manufacture
 manufacturing
@@ -802,7 +777,6 @@ multiply
 murder
 murmur
 nail
-name
 nap
 navigate
 need
@@ -839,7 +813,6 @@ opine
 oppress
 opt
 optimize
-order
 organize
 oriented
 originate
@@ -903,9 +876,7 @@ poke
 polish
 pollute
 ponder
-pop
 possess
-post
 pour
 pout
 practice
@@ -936,7 +907,6 @@ profess
 program
 progress
 prohibit
-project
 promise
 promote
 proofread
@@ -1074,7 +1044,6 @@ sally
 salute
 salvage
 salve
-sample
 sanctify
 sanction
 sap
@@ -1118,21 +1087,17 @@ screw
 scribble
 scrub
 seal
-search
 seat
-secure
 see
 seek
 seem
 seize
 select
 sell
-send
 sense
 sentence
 separate
 serve
-service
 set
 settle
 sever
@@ -1154,7 +1119,6 @@ shiver
 shock
 shoe
 shoot
-shop
 shorten
 shout
 show
@@ -1238,7 +1202,6 @@ stain
 stamp
 stand
 stare
-start
 state
 stay
 steal
@@ -1255,7 +1218,6 @@ stir
 stitch
 stoop
 stop
-store
 strain
 strap
 stray
@@ -1275,7 +1237,6 @@ study
 stuff
 sublet
 submit
-subscribe
 subtract
 succeed
 suck
@@ -1286,14 +1247,12 @@ summarize
 summon
 supervise
 supply
-support
 suppose
 surge
 surmise
 surpass
 surprise
 surround
-survey
 survive
 suspect
 suspend
@@ -1312,7 +1271,6 @@ synthesize
 systemize
 tabulate
 take
-talk
 tame
 tap
 target
@@ -1328,7 +1286,6 @@ tempt
 tend
 terminate
 terrify
-test
 thank
 thaw
 think
@@ -1353,7 +1310,6 @@ trample
 transcribe
 transfer
 transform
-translate
 transport
 trap
 travel
@@ -1388,7 +1344,6 @@ unite
 unlock
 unpack
 untidy
-update
 upgrade
 uphold
 uproot
@@ -1436,7 +1391,6 @@ whip
 whirl
 whisper
 whistle
-win
 wind
 wink
 wipe

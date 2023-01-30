@@ -9,6 +9,7 @@ defmodule Namor.MixProject do
       version: "1.0.0",
       elixir: "~> 1.13",
       deps: deps(),
+      aliases: aliases(),
       start_permanent: Mix.env() == :prod,
       name: "Namor",
       description: "A domain-safe name generator",
@@ -34,6 +35,17 @@ defmodule Namor.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.27", only: :dev, runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      test: [
+        "format --check-formatted",
+        "deps.unlock --check-unused",
+        "compile --warnings-as-errors",
+        "test"
+      ]
     ]
   end
 end

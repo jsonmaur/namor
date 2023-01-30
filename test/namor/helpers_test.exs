@@ -1,25 +1,28 @@
 defmodule Namor.HelpersTest do
   use ExUnit.Case
-  use Namor
 
   alias Namor.Helpers
 
-  describe "get_dict/2" do
-    test "should read reserved dict file" do
-      dict = Helpers.get_dict(:reserved, Path.expand("../dict", __DIR__))
+  describe "get_dict!/2" do
+    setup do
+      %{base_path: Path.expand("../dict", __DIR__)}
+    end
+
+    test "should read all dict files", %{base_path: base_path} do
+      dict = Helpers.get_dict!(:custom, base_path)
+
+      assert dict.adjectives == ["one", "two"]
+      assert dict.nouns == ["three", "four"]
+      assert dict.verbs == ["five", "six"]
+    end
+
+    test "should read reserved dict file", %{base_path: base_path} do
+      dict = Helpers.get_dict!("reserved.txt", base_path)
       assert dict == ["foobar"]
     end
 
-    test "should read all 3 dict files" do
-      dict = Helpers.get_dict(:custom, Path.expand("../dict", __DIR__))
-
-      assert dict.adjective == ["one", "two"]
-      assert dict.noun == ["three", "four"]
-      assert dict.verb == ["five", "six"]
-    end
-
     test "should raise error if dict files are not found" do
-      assert_raise File.Error, fn -> Helpers.get_dict(:custom, "") end
+      assert_raise File.Error, fn -> Helpers.get_dict!(:custom, "") end
     end
   end
 

@@ -1,6 +1,17 @@
 # Namor
 
-Namor is a name generator for Elixir that creates random, url-friendly names. This comes in handy if you need to generate unique subdomains like many PaaS providers, or unique names for anything else.
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jsonmaur/namor.ex/test?label=test&style=plastic)
+![Hex.pm](https://img.shields.io/hexpm/v/namor?style=plastic)
+
+Namor is a name generator for Elixir that creates random, url-friendly names. This comes in handy if you need to generate unique subdomains like many PaaS/SaaS providers do, or unique names for anything else.
+
+* ⚡️ Compile-time dictionary loading
+* 🔒 Subdomain validation with reserved names
+* 📚 Custom dictionaries and reserved word lists
+* 🏋️ Hilarious alternate dictionaries
+* ✅ 100% test coverage
+
+[Browse the documentation](https://hexdocs.pm/namor) or [see it in action](https://namor.jsonmaur.com).
 
 > _Please Note: Generated names are not always guaranteed to be unique. To reduce the chances of collision, you can increase the length of the trailing number ([see here for collision stats](#collision)). Always be sure to check your database before assuming a generated value is unique._
 
@@ -9,46 +20,90 @@ Namor is a name generator for Elixir that creates random, url-friendly names. Th
 ```elixir
 def deps do
   [
-    {:namor, "~> 1.0.0"}
+    {:namor, "~> 1.0"}
   ]
 end
 ```
 
 ```elixir
-# defaults to two words
-Namor.generate()
+iex> require Namor
 
-# generate 3 word names with a 5-character salt 
-Namor.generate(words: 3, salt: 5)
+iex> Namor.generate()
+{:ok, "sandwich-invent"}
 
-# generate names from an alternate dictionary
-Namor.generate(dictionary: :manly)
+iex> Namor.generate(salt: 5)
+{:ok, "sandwich-invent-s86uo"}
+
+iex> Namor.generate(words: 3, dictionary: :manly)
+{:ok, "savage-whiskey-stain"}
 ```
 
-[See it in action here](). [Experience manly mode if you're ready for it.]().
+```elixir
+defmodule MyApp.Subdomains do
+  def get_new_subdomain do
+    with {:ok, subdomain} <- Namor.generate(salt: 5),
+         true <- Namor.subdomain?(subdomain),
+         false <- !Namor.reserved?(subdomain) do
+      subdomain
+    end
+  end
+end
+```
 
 <a name="collision"></a>
 
 ## Collision Stats
 
-The following stats give you the total number of permutations based on the word count (without a salt), and can help you make a decision on how long to make your salt. This data is based on the number of words we currently have in our [dictionary files](dict).
+The following stats give you the total number of permutations based on the word count (without a salt), and can help you make a decision on how long to make your salt. This data is based on the number of words we currently have in our [dictionary files](https://github.com/jsonmaur/namor.ex/tree/master/dict).
 
-- 1-word combinations: 1,875
-- 2-word combinations: 11,503,125
-- 3-word combinations: 12,827,906,250
-- 4-word combinations: 24,052,324,218,750
+##### `:default` dictionary
 
-##### Manly Dictionary
+- 1-word combinations: 7,948
+- 2-word combinations: 11,386,875
+- 3-word combinations: 12,382,548,750
+- 4-word combinations: 23,217,278,906,250
 
-- 1-word combinations: 280
-- 2-word combinations: 128,520
-- 3-word combinations: 14,353,920
-- 4-word combinations: 4,019,097,600
+##### `:manly` dictionary
 
-### .rawData
+- 1-word combinations: 735
+- 2-word combinations: 127,400
+- 3-word combinations: 14,138,880
+- 4-word combinations: 3,958,886,400
 
-Allows access to the raw dictionary data. You probably won't ever use this, but it's there if you need it.
+## Custom Dictionaries
+
+In order for our dictionary files to be loaded into your application during compilation, [`generate/1`](https://hexdocs.pm/namor/Namor.html#generate/1) and [`reserved?/1`](https://hexdocs.pm/namor/Namor.html#reserved?/1) are defined as a macros. This means they can only be used after calling `use Namor` or `require Namor`, which should be done during compilation (and not inside a function). If you want to use your own dictionary, consider calling [`Namor.Helpers.get_dict!/2`](https://hexdocs.pm/namor/Namor.Helpers.html#get_dict!/2) in a place that executes during compilation and **not** runtime. For example:
+
+```
+┌ dictionaries/
+│ ┌── foobar/
+│ │ ┌── adjectives.txt
+│ │ ├── nouns.txt
+│ │ └── verbs.txt
+│ └── reserved.txt
+│ foobar.ex
+```
+
+```elixir
+defmodule MyApp.Foobar do
+  @base_path Path.expand("./dictionaries", __DIR__)
+
+  @reserved Namor.Helpers.get_dict!("reserved.txt", @base_path)
+  @dictionary Namor.Helpers.get_dict!(:foobar, @base_path)
+
+  defp reserved, do: @reserved
+  defp dictionary, do: @dictionary
+
+  def foobar() do
+    with {:ok, name} <- Namor.generate([words: 2], dictionary()),
+         true <- Namor.subdomain?(name),
+         false <- !Namor.reserved?(name, reserved()) do
+      # Do something
+    end
+  end
+end
+```
 
 ## License
 
-[MIT](license) © [Jason Maurer](https://maur.co)
+[MIT](LICENSE) © [Jason Maurer](https://jsonmaur.com)

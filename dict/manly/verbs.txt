@@ -93,7 +93,6 @@ fail
 fall
 fasten
 feast
-feed
 fight
 fix
 flex
@@ -193,7 +192,6 @@ scratch
 scream
 screech
 seal
-search
 seize
 sever
 shade
@@ -238,7 +236,6 @@ taunt
 tear
 tempt
 terrify
-test
 thaw
 threaten
 thrust
@@ -259,7 +256,6 @@ vanquish
 watch
 weigh
 whip
-win
 wipe
 work
 wreck

@@ -95,6 +95,11 @@ defmodule NamorTest do
       assert String.split(name, "_") |> Enum.count() == 2
     end
 
+    test "should not crash with a nil separator", %{dict: dict} do
+      assert {:ok, name} = Namor.generate([separator: nil], dict)
+      assert name =~ ~r/^[a-zA-Z]*$/
+    end
+
     test "should raise with incorrect params" do
       assert_raise FunctionClauseError, fn -> Namor.generate([], "foo") end
     end

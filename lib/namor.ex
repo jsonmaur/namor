@@ -98,7 +98,7 @@ defmodule Namor do
     words = Keyword.get(opts, :words, 2)
     salt = Keyword.get(opts, :salt, 0)
     salt_type = Keyword.get(opts, :salt_type, :mixed)
-    separator = Keyword.get(opts, :separator, "-")
+    separator = Keyword.get(opts, :separator, "-") |> to_string()
 
     name =
       words

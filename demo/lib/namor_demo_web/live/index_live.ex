@@ -8,9 +8,9 @@ defmodule NamorDemoWeb.IndexLive do
     changeset =
       Params.changeset(%Params{}, %{
         words: Map.get(params, "words", "2") |> String.to_integer(),
-        separator: Map.get(params, "separator", "-"),
         salt: Map.get(params, "salt", "0") |> String.to_integer(),
         salt_type: Map.get(params, "salt_type", "mixed") |> String.to_existing_atom(),
+        separator: Map.get(params, "separator", "-") |> to_string(),
         dictionary: Map.get(params, "dictionary", "default") |> String.to_existing_atom()
       })
 
@@ -22,15 +22,13 @@ defmodule NamorDemoWeb.IndexLive do
     socket =
       case Ecto.Changeset.apply_action(changeset, :validate) do
         {:ok, data} ->
-          socket =
-            socket
-            |> assign(:name, connected?(socket) && generate_name(data))
+          socket
+          |> assign(:name, connected?(socket) && generate_name(data))
 
         {:error, changeset} ->
-          socket =
-            socket
-            |> assign(:name, nil)
-            |> assign(:changeset, changeset)
+          socket
+          |> assign(:name, nil)
+          |> assign(:changeset, changeset)
       end
 
     {:noreply, socket}

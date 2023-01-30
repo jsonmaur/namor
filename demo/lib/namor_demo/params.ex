@@ -15,7 +15,7 @@ defmodule NamorDemo.Params do
 
   def changeset(%Params{} = params, attrs \\ %{}) do
     {params, @types}
-    |> cast(attrs, Map.keys(@types))
+    |> cast(attrs, Map.keys(@types), empty_values: [])
     |> validate_number(:words, greater_than: 0, less_than_or_equal_to: 4)
     |> validate_number(:salt, greater_than_or_equal_to: 0)
     |> validate_length(:separator, min: 0, max: 10)

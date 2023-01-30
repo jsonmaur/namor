@@ -7,7 +7,7 @@ defmodule Namor.MixProject do
     [
       app: :namor,
       name: "Namor",
-      version: "1.0.0",
+      version: "1.0.1",
       elixir: "~> 1.13",
       deps: deps(),
       aliases: aliases(),

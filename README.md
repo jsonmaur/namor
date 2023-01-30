@@ -43,6 +43,8 @@ iex> Namor.generate(words: 3, dictionary: :manly)
 {:ok, "savage-whiskey-stain"}
 ```
 
+An example module that generates subdomains for users (does not check for database uniqueness):
+
 ```elixir
 defmodule MyApp.Subdomains do
   use Namor
@@ -98,7 +100,10 @@ In order for our dictionary files to be loaded into your application during comp
 ```
 
 ```elixir
-defmodule MyApp.Foobar do
+defmodule MyApp.Subdomains do
+  use Namor
+
+  @salt_length 5
   @base_path Path.expand("./dictionaries", __DIR__)
 
   @reserved Namor.Helpers.get_dict!("reserved.txt", @base_path)
@@ -107,11 +112,15 @@ defmodule MyApp.Foobar do
   defp reserved, do: @reserved
   defp dictionary, do: @dictionary
 
-  def foobar() do
-    with {:ok, name} <- Namor.generate([words: 2], dictionary()),
-         true <- Namor.subdomain?(name),
-         false <- !Namor.reserved?(name, reserved()) do
-      # Do something
+  def get_new_subdomain(nil), do: Namor.generate([salt: @salt_length], dictionary())
+
+  def get_new_subdomain(name) do
+    with false <- Namor.reserved?(name, reserved()),
+         subdomain <- Namor.with_salt(name, @salt_length),
+         true <- Namor.subdomain?(subdomain) do
+      {:ok, subdomain}
+    else
+      _ -> {:error, :invalid_subdomain}
     end
   end
 end

@@ -6,21 +6,23 @@ defmodule Namor.MixProject do
   def project do
     [
       app: :namor,
+      name: "Namor",
       version: "1.0.0",
       elixir: "~> 1.13",
       deps: deps(),
       aliases: aliases(),
       start_permanent: Mix.env() == :prod,
-      description: "A subdomain-safe name generator",
       source_url: @url,
       homepage_url: "#{@url}#readme",
+      description: "A subdomain-safe name generator",
+      authors: ["Jason Maurer"],
       package: [
-        name: "Namor",
         licenses: ["MIT"],
         links: %{"GitHub" => @url, "Demo" => "https://namor.jsonmaur.com"},
         files: ~w(dict lib LICENSE mix.exs README.md)
       ],
       docs: [
+        main: "readme",
         extras: ["LICENSE", "README.md"]
       ]
     ]

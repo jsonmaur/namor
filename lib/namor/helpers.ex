@@ -22,7 +22,7 @@ defmodule Namor.Helpers do
       │ └── verbs.txt
 
       iex> Namor.Helpers.get_dict("reserved.txt")
-      ["foo", "barr"]
+      ["foo", "bar"]
 
       iex> Namor.Helpers.get_dict(:foobar)
       %{adjectives: ["foo"], nouns: ["bar"], verbs: ["baz"]}

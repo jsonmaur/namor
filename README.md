@@ -1,12 +1,4 @@
-# Namor
-
-<a href="https://github.com/jsonmaur/namor.ex/actions/workflows/test.yml">
-  <img alt="Test Status" src="https://img.shields.io/github/actions/workflow/status/jsonmaur/namor.ex/test.yml?label=test&style=plastic">
-</a>
-
-<a href="https://hexdocs.pm/namor/">
-  <img alt="Hex Version" src="https://img.shields.io/hexpm/v/namor?style=plastic" />
-</a>
+<a href="https://github.com/jsonmaur/namor/actions/workflows/test.yml"><img alt="Test Status" src="https://img.shields.io/github/actions/workflow/status/jsonmaur/namor/test.yml?label=&style=for-the-badge&logo=github"></a> <a href="https://hexdocs.pm/namor/"><img alt="Hex Version" src="https://img.shields.io/hexpm/v/namor?style=for-the-badge&label=&logo=elixir" /></a>
 
 Namor is a name generator for Elixir that creates random, url-friendly names. This comes in handy if you need to generate unique subdomains like many PaaS/SaaS providers do, or unique names for anything else.
 

@@ -9,9 +9,10 @@ defmodule Namor.MixProject do
       name: "Namor",
       version: "1.0.2",
       elixir: "~> 1.13",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
-      start_permanent: Mix.env() == :prod,
       source_url: @url,
       homepage_url: "#{@url}#readme",
       description: "A subdomain-safe name generator",
@@ -19,11 +20,11 @@ defmodule Namor.MixProject do
       package: [
         licenses: ["MIT"],
         links: %{"GitHub" => @url, "Demo" => "https://namor.jsonmaur.com"},
-        files: ~w(dict lib LICENSE mix.exs README.md)
+        files: ~w(dict lib .formatter.exs mix.exs LICENSE README.md)
       ],
       docs: [
         main: "readme",
-        extras: ["LICENSE", "README.md"]
+        extras: ["README.md"]
       ]
     ]
   end

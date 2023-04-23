@@ -4,7 +4,7 @@
   <img alt="Test Status" src="https://img.shields.io/github/actions/workflow/status/jsonmaur/namor.ex/test.yml?label=test&style=plastic">
 </a>
 
-<a href="https://hexdocs.pm/namor">
+<a href="https://hexdocs.pm/namor/">
   <img alt="Hex Version" src="https://img.shields.io/hexpm/v/namor?style=plastic" />
 </a>
 
@@ -16,7 +16,7 @@ Namor is a name generator for Elixir that creates random, url-friendly names. Th
 * 🏋️ Hilarious alternate dictionaries
 * ✅ 100% test coverage
 
-[Browse the documentation](https://hexdocs.pm/namor) or [see it in action](https://namor.jsonmaur.com).
+[Browse the documentation](https://hexdocs.pm/namor) or [see it in action](https://namor.jsonmaur.com). Also available for [Javascript](https://github.com/jsonmaur/namor.js).
 
 > _Please Note: Generated names are not always guaranteed to be unique. To reduce the chances of collision, you can increase the length of the trailing number ([see here for collision stats](#collision)). Always be sure to check your database before assuming a generated value is unique._
 
@@ -125,7 +125,3 @@ defmodule MyApp.Subdomains do
   end
 end
 ```
-
-## License
-
-[MIT](LICENSE) © [Jason Maurer](https://jsonmaur.com)

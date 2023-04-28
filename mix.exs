@@ -20,7 +20,7 @@ defmodule Namor.MixProject do
       package: [
         licenses: ["MIT"],
         links: %{"GitHub" => @url, "Demo" => "https://namor.jsonmaur.com"},
-        files: ~w(dict lib .formatter.exs mix.exs LICENSE README.md)
+        files: ~w(dict lib .formatter.exs CHANGELOG.md LICENSE mix.exs README.md)
       ],
       docs: [
         main: "readme",

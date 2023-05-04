@@ -1,3 +1,7 @@
+## v1.0.3
+
+- Updated documentation things
+
 ## v1.0.2
 
 - Renamed the `:manly` dictionary to `:rugged`

@@ -1,6 +1,6 @@
 defmodule Namor do
   @moduledoc """
-  A subdomain-safe name generator.
+  A subdomain-safe name generator. Check out the [README](readme.html) to get started.
   """
 
   alias Namor.Helpers

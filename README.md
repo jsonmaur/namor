@@ -1,18 +1,17 @@
-<a href="https://github.com/jsonmaur/namor/actions/workflows/test.yml"><img alt="Test Status" src="https://img.shields.io/github/actions/workflow/status/jsonmaur/namor/test.yml?label=&style=for-the-badge&logo=github"></a> <a href="https://hexdocs.pm/namor/"><img alt="Hex Version" src="https://img.shields.io/hexpm/v/namor?style=for-the-badge&label=&logo=elixir" /></a>
+# Namor
 
-Namor is a name generator for Elixir that creates random, url-friendly names. This comes in handy if you need to generate unique subdomains like many PaaS/SaaS providers do, or unique names for anything else.
+Namor is a name generator for Elixir that creates random, url-friendly names. This comes in handy if you need to generate unique subdomains like many PaaS/SaaS providers do, or unique names for anything else. Supports compile-time dictionary loading, subdomain validation with reserved names, custom dictionaries and reserved word lists, alternate dictionaries, and more.
 
-* ⚡️ Compile-time dictionary loading
-* 🔒 Subdomain validation with reserved names
-* 📚 Custom dictionaries and reserved word lists
-* 🏋️ Hilarious alternate dictionaries
-* ✅ 100% test coverage
+[See a demo here.](https://namor.jsonmaur.com) Also available for [Javascript](https://github.com/jsonmaur/namor.js).
 
-[Browse the documentation](https://hexdocs.pm/namor) or [see it in action](https://namor.jsonmaur.com). Also available for [Javascript](https://github.com/jsonmaur/namor.js).
+> _Please Note: Generated names are not always guaranteed to be unique. To reduce the chances of collision, you can increase the length of the trailing number ([see here for collision stats](#collision-stats)). Always be sure to check your database before assuming a generated value is unique._
 
-> _Please Note: Generated names are not always guaranteed to be unique. To reduce the chances of collision, you can increase the length of the trailing number ([see here for collision stats](#collision)). Always be sure to check your database before assuming a generated value is unique._
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Collision Stats](#collision-stats)
+- [Custom Dictionaries](#custom-dictionaries)
 
-## Getting Started
+## Installation
 
 ```elixir
 def deps do
@@ -21,6 +20,8 @@ def deps do
   ]
 end
 ```
+
+## Getting Started
 
 ```elixir
 iex> require Namor
@@ -57,11 +58,9 @@ defmodule MyApp.Subdomains do
 end
 ```
 
-<a name="collision"></a>
-
 ## Collision Stats
 
-The following stats give you the total number of permutations based on the word count (without a salt), and can help you make a decision on how long to make your salt. This data is based on the number of words we currently have in our [dictionary files](https://github.com/jsonmaur/namor.ex/tree/master/dict).
+The following stats give you the total number of permutations based on the word count (without a salt), and can help you make a decision on how long to make your salt. This data is based on the number of words we currently have in our [dictionary files](https://github.com/jsonmaur/namor/tree/master/dict).
 
 ##### `:default` dictionary
 
@@ -82,13 +81,12 @@ The following stats give you the total number of permutations based on the word 
 In order for our dictionary files to be loaded into your application during compilation, [`generate/1`](https://hexdocs.pm/namor/Namor.html#generate/1) and [`reserved?/1`](https://hexdocs.pm/namor/Namor.html#reserved?/1) are defined as a macros. This means they can only be used after calling `use Namor` or `require Namor`, which should be done during compilation (and not inside a function). If you want to use your own dictionary, consider calling [`Namor.Helpers.get_dict!/2`](https://hexdocs.pm/namor/Namor.Helpers.html#get_dict!/2) in a place that executes during compilation and **not** runtime. For example:
 
 ```
-┌ dictionaries/
-│ ┌── foobar/
-│ │ ┌── adjectives.txt
-│ │ ├── nouns.txt
-│ │ └── verbs.txt
-│ └── reserved.txt
-│ foobar.ex
+┌── dictionaries/
+│  ┌── foobar/
+│  │  ┌── adjectives.txt
+│  │  ├── nouns.txt
+│  │  └── verbs.txt
+│  └── reserved.txt
 ```
 
 ```elixir

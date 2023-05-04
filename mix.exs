@@ -1,13 +1,13 @@
 defmodule Namor.MixProject do
   use Mix.Project
 
-  @url "https://github.com/jsonmaur/namor.ex"
+  @url "https://github.com/jsonmaur/namor"
 
   def project do
     [
       app: :namor,
       name: "Namor",
-      version: "1.0.2",
+      version: "1.0.3",
       elixir: "~> 1.13",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
@@ -16,7 +16,6 @@ defmodule Namor.MixProject do
       source_url: @url,
       homepage_url: "#{@url}#readme",
       description: "A subdomain-safe name generator",
-      authors: ["Jason Maurer"],
       package: [
         licenses: ["MIT"],
         links: %{"GitHub" => @url, "Demo" => "https://namor.jsonmaur.com"},
@@ -24,7 +23,8 @@ defmodule Namor.MixProject do
       ],
       docs: [
         main: "readme",
-        extras: ["README.md"]
+        extras: ["README.md"],
+        authors: ["Jason Maurer"]
       ]
     ]
   end

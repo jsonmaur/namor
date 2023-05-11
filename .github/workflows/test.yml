@@ -1,42 +1,36 @@
 name: Test
 permissions:
   contents: read
-
-on: [push, pull_request]
-
+on:
+  pull_request:
+  push:
+    branches: [master]
 env:
   MIX_ENV: test
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         otp: ["24", "25"]
         elixir: ["1.13", "1.14"]
-
     steps:
     - uses: actions/checkout@v3
-
     - uses: erlef/setup-beam@v1
       with:
         otp-version: ${{ matrix.otp }}
         elixir-version: ${{ matrix.elixir }}
-
     - uses: actions/cache@v3
       with:
         path: deps
         key: mix-deps-${{ runner.os }}-${{ hashFiles('**/mix.lock') }}
         restore-keys: |
           mix-deps-${{ runner.os }}-
-
     - uses: actions/cache@v3
       with:
         path: _build
         key: mix-build-${{ runner.os }}-${{ hashFiles('**/mix.lock') }}
         restore-keys: |
           mix-build-${{ runner.os }}-
-
     - run: mix deps.get
     - run: mix test

@@ -18,7 +18,7 @@ defmodule Namor.MixProject do
       description: "A subdomain-safe name generator",
       package: [
         licenses: ["MIT"],
-        links: %{"GitHub" => @url, "Demo" => "https://namor.jsonmaur.com"},
+        links: %{"GitHub" => @url},
         files: ~w(dict lib .formatter.exs CHANGELOG.md LICENSE mix.exs README.md)
       ],
       docs: [

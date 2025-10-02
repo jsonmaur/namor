@@ -2,7 +2,7 @@
 
 Namor is a name generator for Elixir that creates random, url-friendly names. This comes in handy if you need to generate unique subdomains like many PaaS/SaaS providers do, or unique names for anything else. Supports compile-time dictionary loading, subdomain validation with reserved names, custom dictionaries and reserved word lists, alternate dictionaries, and more.
 
-[See a demo here.](https://namor.jsonmaur.com) Also available for [Javascript](https://github.com/jsonmaur/namor.js).
+Also available for [Javascript](https://github.com/jsonmaur/namor.js).
 
 > _Please Note: Generated names are not always guaranteed to be unique. To reduce the chances of collision, you can increase the length of the trailing number ([see here for collision stats](#collision-stats)). Always be sure to check your database before assuming a generated value is unique._
 

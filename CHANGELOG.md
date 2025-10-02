@@ -1,3 +1,7 @@
+## v1.0.4
+
+- Removed commas from dictionary
+
 ## v1.0.3
 
 - Updated documentation things

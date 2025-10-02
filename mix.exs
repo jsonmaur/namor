@@ -7,7 +7,7 @@ defmodule Namor.MixProject do
     [
       app: :namor,
       name: "Namor",
-      version: "1.0.3",
+      version: "1.0.4",
       elixir: "~> 1.13",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,

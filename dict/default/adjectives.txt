@@ -1355,7 +1355,6 @@ fetid
 feudal
 feverish
 few
-few
 fewer
 fictional
 fictitious
@@ -2317,7 +2316,6 @@ manicured
 manipulative
 manly
 manual
-many
 many
 marbled
 marginal

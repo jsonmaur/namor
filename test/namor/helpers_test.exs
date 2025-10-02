@@ -43,12 +43,12 @@ defmodule Namor.HelpersTest do
 
   describe "get_salt/1" do
     test "should generate a salt" do
-      assert Helpers.get_salt(5, 'abc123') =~ ~r/^[abc123]{5}$/
+      assert Helpers.get_salt(5, ~c"abc123") =~ ~r/^[abc123]{5}$/
     end
 
     test "should raise with incorrect params" do
-      assert_raise FunctionClauseError, fn -> Helpers.get_salt(0, 'a') end
-      assert_raise FunctionClauseError, fn -> Helpers.get_salt("5", 'a') end
+      assert_raise FunctionClauseError, fn -> Helpers.get_salt(0, ~c"a") end
+      assert_raise FunctionClauseError, fn -> Helpers.get_salt("5", ~c"a") end
     end
   end
 end

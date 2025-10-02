@@ -119,9 +119,9 @@ defmodule Namor do
   def with_salt(value, length, separator \\ "-", type \\ :mixed) do
     chars =
       case type do
-        :numbers -> '0123456789'
-        :letters -> 'abcdefghijklmnopqrstuvwxyz'
-        :mixed -> 'abcdefghijklmnopqrstuvwxyz0123456789'
+        :numbers -> ~c"0123456789"
+        :letters -> ~c"abcdefghijklmnopqrstuvwxyz"
+        :mixed -> ~c"abcdefghijklmnopqrstuvwxyz0123456789"
       end
 
     value <> separator <> Helpers.get_salt(length, chars)

@@ -1355,7 +1355,7 @@ fetid
 feudal
 feverish
 few
-few,
+few
 fewer
 fictional
 fictitious
@@ -2318,7 +2318,7 @@ manipulative
 manly
 manual
 many
-many,
+many
 marbled
 marginal
 marked
@@ -3522,7 +3522,7 @@ solid
 solitary
 somatic
 somber
-some,
+some
 sonic
 sonly
 soothed

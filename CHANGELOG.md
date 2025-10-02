@@ -1,6 +1,7 @@
 ## v1.0.4
 
 - Removed commas from dictionary
+- Updated dependencies
 
 ## v1.0.3
 
